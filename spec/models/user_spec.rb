@@ -36,6 +36,7 @@ describe User do
         @user.last_name_kana = "ジン"
         expect(@user).to be_valid
       end
+
     end
 
     context '新規登録がうまくいかないとき' do
