@@ -58,6 +58,10 @@ describe User do
         another_user.valid?
         expect(another_user.errors.full_messages).to include("Email has already been taken")
       end
+      it "emailは@がないと登録できない" do
+        @user.email = "aaaaaa"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("@ is necessary")
       it "passwordが空では登録できない" do
         @user.password = ""
         @user.valid?
@@ -74,7 +78,7 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-      it "passwordが半角英数でなければ登録できない" do
+      it "半角英数でなければ登録できない" do
         @user.password = "ああああああ"
         @user.valid?
         expect(@user.errors.full_messages).to include(" Include both letters and numbers")
@@ -99,6 +103,12 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include("Full-width katakana characters")
       end
+      it "誕生日が空だと登録できない" do
+        @user.birth_day = ""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Birth_day can't be blank")
+      end
+
     end
   end
 end
