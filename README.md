@@ -55,7 +55,7 @@ Things you may want to cover:
 		| shipping_fee_id | integer | null: false |
 		| shipping_days_id | integer | null: false |	
 		| prefecture_id | string | null: false |
-		| shipping_id | integer | null: false, foreign_key: true |
+	
 		
 		
 		
