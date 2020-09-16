@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @item = Item.all
+    #@item = Item.all
   end
 
   def new

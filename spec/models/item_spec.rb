@@ -86,6 +86,12 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price Out of setting range")
       end
+      it  "価格が300円以上9_999_999円以下の範囲外であれば出品できない" do
+        @item.price = 1_000_0000
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price Out of setting range")
+      end
+
       it  "価格が半角数字のみでなければ出品できない" do
         @item.price = "300a"
         @item.valid?

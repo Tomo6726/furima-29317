@@ -15,8 +15,7 @@ function price(){
      } else {
        let fee = '-';
        let gains = '-';
-       add_tax.textContent = fee;
-       profit.textContent = gains;
+       
      }
    });
   
