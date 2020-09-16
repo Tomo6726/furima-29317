@@ -31,15 +31,15 @@ describe Item do
     end
   
     
-    # context '商品出品がうまくいかないとき' do
+    context '商品出品がうまくいかないとき' do
 
-    #   it  "出品画像が添付されていないと出品できない" do
-    #     @item.image = ""
-    #     binding.pry
-    #     @item.valid?
-    #     expect(@item.errors.full_messages).to include("Image can't be blank")
-    #   end
-    # end
+      it  "出品画像が添付されていないと出品できない" do
+        @item.image = nil
+       
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+    end
       it  "商品名が空だと出品できない" do
         @item.name = ""
         @item.valid?
