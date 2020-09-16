@@ -4,9 +4,7 @@ describe Item do
     @item = FactoryBot.build(:item)
     @item.image =  fixture_file_upload('test_image.png', 'image/png')
   end
-  # after(:build) do |post|
-  #   post.image.attach(io: File.open('public/images/test_image.png'),  filename: 'test_image_png')
-  # end
+ 
 
   describe '商品の情報を入力' do
     context '商品出品がうまくいくとき' do
