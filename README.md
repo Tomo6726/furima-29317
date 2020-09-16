@@ -52,10 +52,10 @@ Things you may want to cover:
 		| introduction | text | null: false |
 		| category_id | integer | null: false |
 		| status_id | integer | null: false|
-		| shipping_cost_id | integer | null: false |
-		| shipping_days_id | integer | null: false |
+		| shipping_fee_id | integer | null: false |
+		| shipping_days_id | integer | null: false |	
 		| prefecture_id | string | null: false |
-		| shipping_id | integer | null: false, foreign_key: true |
+	
 		
 		
 		
@@ -71,7 +71,7 @@ Things you may want to cover:
 		| item | references  | null: false, foreign_key: true |
 		| user     | references  | null: false, foreign_key: true |
 		
-		###  Association
+		###  Association;
 		
 		- belongs to :user
 		- belongs to :item

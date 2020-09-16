@@ -154,7 +154,7 @@
         <% end %>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-
+    <%# @item.each do |item| %>
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
@@ -173,6 +173,7 @@
           </div>
         </div>
         <% end %>
+    <%# end %>
       </li>
       <%# //商品がある場合は表示されないようにしましょう %>
       <%# /商品がない場合のダミー %>
@@ -182,7 +183,7 @@
 </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
-  <a href="#">
+  <a href=  new_item_path>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   </a>
 </div>
