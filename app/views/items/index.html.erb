@@ -154,13 +154,13 @@
         <% end %>
       </li>
       <%# //商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
-    <%# if user_signed_in? && current_user.id == @item.user_id %>
+    
     <% @item.each do |item| %>
     
       <%# 商品がない場合のダミー %>
       <%# 商品がある場合は表示されないようにしましょう %>
       <li class='list'>
-        <%= link_to '#' do %>
+        <%= link_to item_path(item.id), method: :get do %>
         <%= image_tag item.image, class: "item-img" %>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -176,7 +176,7 @@
         </div>
         <% end %>
     <% end %>
-    <%# end %>
+    
       </li>
       <%# //商品がある場合は表示されないようにしましょう %>
       <%# /商品がない場合のダミー %>
