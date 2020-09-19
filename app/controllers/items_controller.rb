@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # protect_from_forgery :except => [:create]
+  
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item,  only: [:show, :edit, :update]
   before_action :move_to_index, except: [:index, :show, :edit]
