@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     if @item.destroy
      redirect_to action: :index
     else
-      render :destroy
+      render :show
     end
     
   end
