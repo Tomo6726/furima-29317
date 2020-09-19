@@ -21,9 +21,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
-    redirect_to action: :index
-    
+    if user_signed_in? && current_user.id == @item.user_id
+     @item.destroy
+     redirect_to action: :index
+    else
+      render :destroy
+    end
     
   end
   
