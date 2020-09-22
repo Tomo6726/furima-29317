@@ -62,9 +62,9 @@ Things you may want to cover:
 		### Association
 		
 		- belongs to :user
-		- has_one :purchase
+		- has_one :order
 		
-		##  purchases テーブル
+		##  Orders テーブル
 		
 		| Column    | Type    | Options     |
 		| --------  | ------  | ----------- |
@@ -90,4 +90,4 @@ Things you may want to cover:
 	　｜ purchase		|	| references |	null:	false, foreign_key: true |
 		###  Association
 		
-		- belongs to :purchase
+		- belongs to :order
