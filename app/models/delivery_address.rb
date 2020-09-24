@@ -1,4 +1,4 @@
 class DeliveryAddress < ApplicationRecord
-  belongs to :purchase
+  belongs_to :order
  
 end

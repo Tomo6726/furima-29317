@@ -1,37 +1,41 @@
 class OrdersController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
   before_action :return_to_index
+
+  
+
   def index
+    @order = OrderDelivery.new
   end
   
   def new
-      
   end
+  
    
   def create
-  
-   @order = Order.new(price: purchase_params[:price])
+   
+   @order = OrderDelivery.new(order_delivery_params)
    if @order.valid?
       pay_item
       @order.save
       return redirect_to root_path
    else
       render 'index'
-    end
+   end
   end
 
   
   private
    
-  def order_params
-    params.permit(:price, :token)
+  def order_delivery_params
+    params.permit(:item_id, :postal_code, :prefecture_id, :city, :block_number, :building_name, :phone_number, :token).merge(user_id: current_user.id)
   end
    
   def pay_item
-      Payjp.api_key = "sk_test_583657e63b35b72434935314"  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] #PAY.JPテスト秘密鍵
       Payjp::Charge.create(
-        amount: order_params[:price],  # 商品の値段
-        card: order_params[:token],    # カードトークン
+        amount: @item.price,  # 商品の値段
+        card: order_delivery_params[:token],    # カードトークン
         currency:'jpy'                 # 通貨の種類(日本円)
       )
   end
