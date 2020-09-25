@@ -46,7 +46,7 @@ class OrdersController < ApplicationController
   end
   def return_to_index
     @item = Item.find(params[:item_id])
-    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
+    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id  || if @item.order != nil
   end
    
 end
