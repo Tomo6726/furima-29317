@@ -2,7 +2,7 @@ require 'rails_helper'
 describe Item do
   before do
     @item = FactoryBot.build(:item)
-    @item.image =  fixture_file_upload('test_image.png', 'image/png')
+   
   end
  
 
@@ -10,6 +10,7 @@ describe Item do
     context '商品出品がうまくいくとき' do
     
       it  "imageとname、introduction、price、category_id、status_id、shipping_fee_id、prefecture_id、shipping_day_idが存在すれば出品できる" do
+        
         expect(@item).to be_valid
       end
 
